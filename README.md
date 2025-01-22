@@ -89,3 +89,56 @@ Previous Purchases          0
 Preferred Payment Method    0
 Frequency of Purchases      0
 
+
+CODE
+
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+# Replace 'shopping_data.csv' with your dataset file
+df = pd.read_csv('shopping_trends.csv')
+
+# Display the first few rows of the dataset
+print(df.head())
+
+# Basic information about the dataset
+print(df.info())
+
+# Statistical summary of numerical columns
+print(df.describe())
+
+# Check for missing values
+print(df.isnull().sum())
+
+# Data visualization
+
+# Histogram of numerical features
+df.hist(figsize=(10, 8))
+plt.tight_layout()
+plt.show()
+
+# Correlation heatmap
+plt.figure(figsize=(10, 6))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+plt.title('Correlation Heatmap')
+plt.show()
+
+# Bar plot of categorical columns
+categorical_columns = ['Column1', 'Column2']  # Replace with actual column names
+for col in categorical_columns:
+    sns.countplot(data=df, x=col)
+    plt.title(f'Count of {col}')
+    plt.show()
+
+# Boxplot for outliers
+numerical_columns = ['Column3', 'Column4']  # Replace with actual column names
+for col in numerical_columns:
+    sns.boxplot(data=df, y=col)
+    plt.title(f'Boxplot of {col}')
+    plt.show()
+
+
